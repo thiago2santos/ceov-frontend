@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "ceov-frontend": {
+    "ceov": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ceov-frontend:build:production"
+              "buildTarget": "ceov:build:production"
             },
             "development": {
-              "buildTarget": "ceov-frontend:build:development"
+              "buildTarget": "ceov:build:development"
             }
           },
           "defaultConfiguration": "development"

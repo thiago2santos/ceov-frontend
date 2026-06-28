@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ceov-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ceov-app
+
+  template:
+    metadata:
+      labels:
+        app: ceov-app
+    spec:
+      containers:
+        - name: ceov-app
+          image: ceov-app:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ceov-app
+spec:
+  type: NodePort
+  selector:
+    app: ceov-app
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30080
